@@ -1,6 +1,6 @@
-**Web Geo-Mapp Application Development**
+**Web Geo-Map Application Development**
 
-This project is to create Web-Application with different Geo-applications. 
+This project's motive is creating Web-Application with different Geo-applications. 
 From distance measurement between routes, area calculation, printable maps etc.
 
 ##More functionalities will be added along the way as project progress. 
