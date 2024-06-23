@@ -1,51 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-    <link rel="stylesheet" href="./lib/leaflet-measure.css">
-    <link rel="stylesheet" href="./lib/MarkerCluster.css"> 
-    <link rel="stylesheet" href="./lib/MarkerCluster.Default.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
-    <link rel="stylesheet" href="./dist/style.css">
-    
-    <title>Leaflet Mapping Geoproject</title>
-    <!--
-        <style>
-            #map {
-                width: 100%;
-                height: 700px;
-            }
-        </style>
-    -->
-
-</head>
-
-
-<body>
-    <div id="map"></div>
-    <button onclick=FullDisplayView()>View in full screen</button>
-    <div class="coordinate"></div>  
-    <button class="print-map"> Print Map </button>
-    <button class="zoom_to_layer_extent"> Zoom to Layer Extent</button>
-</body>
-
-</html>
-
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script></script>
-<script src="./lib/leaflet.browser.print.js"></script> 
-<script src="./lib/leaflet-measure.js"></script>
-<script src="./lib/leaflet.markercluster.js"></script>
-<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-<script src="./data/test.js"></script> 
-<script src="./dist/main.js"></script>
-<script src="./dist/web-GIS.js"></script>
-
-<!-- <script> 
+// This is the main.js file for the leaflet map application
     // initialized map class   
     //var map = L.map('map', {   //measure tool plugin map control set
     //    measureControl: true,
@@ -81,36 +34,12 @@
     L.control.scale().addTo(map)
     //L.control.scale({position: 'bottomright'}).addTo(map)
 
-    //Full screen view function - map
-    var mapId = document.getElementById('map');
-    function FullDisplayView() {
-        mapId.requestFullscreen();
-    }
-
     // Display Map Geo Coordinates when mouse moves to show on page
     map.on('mousemove', function(e) {
         console.log(e)
         $('.coordinate').html(`Lat:  ${e.latlng.lat} Lng: ${e.latlng.lng}`)  // using jQuery selects from the coordinate class above in 'body'
 
-    });
-
-    // Map Printing Functionalities on page with a mix of this tool from src: https://github.com/Igor-Vladyka/leaflet.browser.print
-    $('.print-map').click(function () { // jQuery function to print map
-        window.print();
-    });
-
-    L.control.browserPrint().addTo(map);
-
-    // leaflet browser print tool : https://github.com/Igor-Vladyka/leaflet.browser.print
-    //var browserControl = L.control.browserPrint(options).addTo(map);    
-        
-    // Measure distance & area tool function 
-    L.control.measure({
-        primaryLengthUnit: 'kilometers',  // setting the main unit measurement to kilometers
-        secondaryLengthUnit: 'meters',
-        primaryAreaUnit: 'sqmeters',
-        secondaryAreaUnit: undefined
-    }).addTo(map);     
+    });    
 
     // Loading in the test.js geosjon Data Point Clusters into the map
     //L.geoJSON(data).addTo(map);  // data is the geojson file loaded in the test.js file
@@ -142,12 +71,3 @@
 
     L.control.layers(baseMaps, overlayMaps).addTo(map);  // adding the layer control in a different way to the map + Added markers to map, way 2
 
-    // Adding a Zoom to extent/layer Map Function via JQuery function
-    $('.zoom_to_layer_extent').click(function(){
-        //map.fitBounds(markers.getBounds()); //Auto zoom to the extent of the markers
-        map.setView([52.5200, 13.4050], 12) // Berlin location
-    });
-
-    // BootStrap 5.3
-
-</script> -->

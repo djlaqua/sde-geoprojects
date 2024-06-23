@@ -1,5 +1,16 @@
 **FrontEnd of Web Geo-Map Application**
 
+Functionalities include:
+
+* Zooming
+* Geocode - Location Finder
+* Basemap layers
+* Map Print Outs
+* Full Screen view
+* Map Scale & Coordinate
+* Marker Cluster
+
+
 Cluster marker Data was generated from: https://geojson.io/#new&map=10.9/52.5384/13.4103 - AOI in Berlin, Germany
 
 https://jsonformatter.curiousconcept.com/ - can be used for proper json file formatting FYI
