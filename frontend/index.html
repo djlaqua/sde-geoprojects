@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./lib/MarkerCluster.Default.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
     <link rel="stylesheet" href="./dist/style.css">
-    
+
     <title>Leaflet Mapping Geoproject</title>
     <!--
         <style>
@@ -19,16 +19,26 @@
                 width: 100%;
                 height: 700px;
             }
-        </style>
+        </style>ƒ
     -->
 
 </head>
 
 
 <body>
-    <div id="map"></div>
+    <div id="map">
+        <!-- Map will be displayed here -->
+        <div class="leaflet-control map-coordinate">
+            <div class="coordinate"></div>  
+        </div>  
+
+    <!-- full browser view -->
+    </div class="leaflet-control map-fullscreen" button onclick=FullDisplayView()>
+        
+    >
+
+    
     <button onclick=FullDisplayView()>View in full screen</button>
-    <div class="coordinate"></div>  
     <button class="print-map"> Print Map </button>
     <button class="zoom_to_layer_extent"> Zoom to Layer Extent</button>
 </body>

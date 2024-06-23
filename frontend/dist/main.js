@@ -36,7 +36,7 @@
 
     // Display Map Geo Coordinates when mouse moves to show on page
     map.on('mousemove', function(e) {
-        console.log(e)
+        console.log(e) // Built-in function that allows you to output messages or values to the console. Used for debugging etc.
         $('.coordinate').html(`Lat:  ${e.latlng.lat} Lng: ${e.latlng.lng}`)  // using jQuery selects from the coordinate class above in 'body'
 
     });    
@@ -53,9 +53,6 @@
     Berlin.addTo(markers)
     //markers.addTo(map); // adding the markers to the map - way 1
 
-    // Map Geocoder for searching locations - Leaflet Geocoder plugin source : https://github.com/Leaflet/Leaflet.markercluster
-    L.Control.geocoder().addTo(map);
-
     // Leaflet layer control to the map - adding various layer basemap tile layers 
     var baseMaps = {
         'OSM': osm,
@@ -69,5 +66,5 @@
 
     }
 
-    L.control.layers(baseMaps, overlayMaps).addTo(map);  // adding the layer control in a different way to the map + Added markers to map, way 2
+    L.control.layers(baseMaps, overlayMaps, {collapsed: false, position: 'topleft' }).addTo(map);  // adding the layer control in a different way to the top left map section + Added markers to map, way 2
 

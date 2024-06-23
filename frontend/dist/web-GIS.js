@@ -10,11 +10,14 @@
         window.print();
     });
 
-    L.control.browserPrint().addTo(map);
+    L.control.browserPrint({position: 'topright' }).addTo(map); // Print button location addes to map
 
     // leaflet browser print tool : https://github.com/Igor-Vladyka/leaflet.browser.print
     //var browserControl = L.control.browserPrint(options).addTo(map);    
-        
+    
+    //Map Geocoder for searching locations - Leaflet Geocoder plugin source : https://github.com/Leaflet/Leaflet.markercluster
+    L.Control.geocoder().addTo(map);
+
     // Measure distance & area tool function 
     L.control.measure({
         primaryLengthUnit: 'kilometers',  // setting the main unit measurement to kilometers
