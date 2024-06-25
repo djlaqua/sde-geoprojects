@@ -26,21 +26,60 @@
 
 
 <body>
+    <!-- Nav Bar Bootstrap -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">SDE-GeoProject</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="dropdown navbar-dropdown" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div id="map">
-        <!-- Map will be displayed here -->
+
+        <!-- Map  Coordinate will be displayed here -->
         <div class="leaflet-control map-coordinate">
             <div class="coordinate"></div>  
         </div>  
 
-    <!-- full browser view -->
-    </div class="leaflet-control map-fullscreen" button onclick=FullDisplayView()>
-        
-    >
+        <!-- full browser view Bootstrap Icons-->
+        <div class="leaflet-control map-fullscreen"onclick=FullDisplayView()>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-fullscreen" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707m4.344 0a.5.5 0 0 1 .707 0l4.096 4.096V11.5a.5.5 0 1 1 1 0v3.975a.5.5 0 0 1-.5.5H11.5a.5.5 0 0 1 0-1h2.768l-4.096-4.096a.5.5 0 0 1 0-.707m0-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707m-4.344 0a.5.5 0 0 1-.707 0L1.025 1.732V4.5a.5.5 0 0 1-1 0V.525a.5.5 0 0 1 .5-.5H4.5a.5.5 0 0 1 0 1H1.732l4.096 4.096a.5.5 0 0 1 0 .707"/>
+            </svg>
+        </div>
 
-    
-    <button onclick=FullDisplayView()>View in full screen</button>
+    <!-- zoom to layer extent Bootstrap Icon -->
+    <div class="leaflet-control zoom_to_layer_extent">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+            <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"/>
+        </svg>
+    </div>
+
+        <!-- full browser view -->
+        </div class="leaflet-control map-fullscreen" button onclick=FullDisplayView()>
+
+    <div>
+    <!-- <button onclick=FullDisplayView()>View in full screen on screen button</button> --> 
     <button class="print-map"> Print Map </button>
-    <button class="zoom_to_layer_extent"> Zoom to Layer Extent</button>
+    <!-- <button class="zoom_to_layer_extent"> Zoom to Layer Extent</button> -->
 </body>
 
 </html>
@@ -54,110 +93,3 @@
 <script src="./data/test.js"></script> 
 <script src="./dist/main.js"></script>
 <script src="./dist/web-GIS.js"></script>
-
-<!-- <script> 
-    // initialized map class   
-    //var map = L.map('map', {   //measure tool plugin map control set
-    //    measureControl: true,
-    //}).setView([52.5200, 13.4050], 10); // Berlin location
-    var map = L.map('map').setView([52.5200, 13.4050], 10); //  Berlin location
-    map.zoomControl.setPosition('topright');   // changing the zoom control settings
-
-    // osm tile-layer for leaflet js map 
-    var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-
-    // Leaflet layer control - Adding more Basemaps (ESRI etc.) to the Interactive Web-Map. Source: https://leaflet-extras.github.io/leaflet-providers/preview/
-    var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
-    });
-
-    // Stadia Stamen Terrain BaseMap - source same as above
-    var Stadia_StamenTerrain = L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_terrain/{z}/{x}/{y}{r}.{ext}', {
-	minZoom: 0,
-	maxZoom: 18,
-	attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-	ext: 'png'
-    });
-
-
-    // addition of marker to map-center
-    var LoneMarker = L.marker([52.5200, 13.4050]).addTo(map)
-        .bindPopup('A pretty CSS popup.<br> Easily customizable.')
-        .openPopup(); 
-
-    // map scale addition
-    L.control.scale().addTo(map)
-    //L.control.scale({position: 'bottomright'}).addTo(map)
-
-    //Full screen view function - map
-    var mapId = document.getElementById('map');
-    function FullDisplayView() {
-        mapId.requestFullscreen();
-    }
-
-    // Display Map Geo Coordinates when mouse moves to show on page
-    map.on('mousemove', function(e) {
-        console.log(e)
-        $('.coordinate').html(`Lat:  ${e.latlng.lat} Lng: ${e.latlng.lng}`)  // using jQuery selects from the coordinate class above in 'body'
-
-    });
-
-    // Map Printing Functionalities on page with a mix of this tool from src: https://github.com/Igor-Vladyka/leaflet.browser.print
-    $('.print-map').click(function () { // jQuery function to print map
-        window.print();
-    });
-
-    L.control.browserPrint().addTo(map);
-
-    // leaflet browser print tool : https://github.com/Igor-Vladyka/leaflet.browser.print
-    //var browserControl = L.control.browserPrint(options).addTo(map);    
-        
-    // Measure distance & area tool function 
-    L.control.measure({
-        primaryLengthUnit: 'kilometers',  // setting the main unit measurement to kilometers
-        secondaryLengthUnit: 'meters',
-        primaryAreaUnit: 'sqmeters',
-        secondaryAreaUnit: undefined
-    }).addTo(map);     
-
-    // Loading in the test.js geosjon Data Point Clusters into the map
-    //L.geoJSON(data).addTo(map);  // data is the geojson file loaded in the test.js file
-    var markers = L.markerClusterGroup();  // marker cluster leaflet plugin source: https://github.com/Leaflet/Leaflet.markercluster
-    //var Berlin = L.geoJSON(data).addTo(map);  // adding the geojson data to the map or add popups below
-    var Berlin = L.geoJSON(data, {
-        onEachFeature: function (feature, layer) { // adding popups to the markers via iterating through eash dictionary object in the geojson
-            layer.bindPopup(feature.properties.names_in_all);
-        }
-    });         
-    Berlin.addTo(markers)
-    //markers.addTo(map); // adding the markers to the map - way 1
-
-    // Map Geocoder for searching locations - Leaflet Geocoder plugin source : https://github.com/Leaflet/Leaflet.markercluster
-    L.Control.geocoder().addTo(map);
-
-    // Leaflet layer control to the map - adding various layer basemap tile layers 
-    var baseMaps = {
-        'OSM': osm,
-        'Esri World Imagery': Esri_WorldImagery,
-        'Stadia Stamen Terrain': Stadia_StamenTerrain
-    }
-    // adding the geojson data to the map
-    var overlayMaps = { 
-        'GeoJSON JS Markers': markers,
-        'Lone Marker': LoneMarker
-
-    }
-
-    L.control.layers(baseMaps, overlayMaps).addTo(map);  // adding the layer control in a different way to the map + Added markers to map, way 2
-
-    // Adding a Zoom to extent/layer Map Function via JQuery function
-    $('.zoom_to_layer_extent').click(function(){
-        //map.fitBounds(markers.getBounds()); //Auto zoom to the extent of the markers
-        map.setView([52.5200, 13.4050], 12) // Berlin location
-    });
-
-    // BootStrap 5.3
-
-</script> -->

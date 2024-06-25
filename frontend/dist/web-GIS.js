@@ -1,7 +1,12 @@
    // Leaflet map initialization functions 
-   //Full screen view function - map
+   //Full screen view function if condition statement to also exit full screen with same button- map
     var mapId = document.getElementById('map');
     function FullDisplayView() {
+        if (document.fullscreenElement) {
+            document.exitFullscreen();
+        } else{
+            mapId.requestFullscreen
+        }
         mapId.requestFullscreen();
     }
     
